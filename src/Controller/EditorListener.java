@@ -13,7 +13,7 @@ import javax.swing.JEditorPane;
  */
 public class EditorListener extends FocusAdapter implements ActionListener {
     
-    private EditorModel model;
+    private final EditorModel model;
     
     public EditorListener(EditorModel model){
         this.model=model;
@@ -23,30 +23,26 @@ public class EditorListener extends FocusAdapter implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         String source=event.getActionCommand();
         switch(source){
-            case "NowyPlik":{
+            case "NowyPlik":
                 model.newFile();
                 break;
-            }
-            case "Zamknij":{
+            case "Zamknij":
                 model.closeFile();
                 break;
-            }
-            case "Drukuj":{
+            case "Drukuj":
                  model.print();
                  break;
-            }
-            case "Wybierz":{
+            case "Wybierz":
                 model.update();
                 break;
-            }
-            case "ZapiszPlik":{
+            case "ZapiszPlik":
                 model.saveFile();
                 break;
-            }
-            case "Otworz":{
+            case "Otworz":
                 model.openFile();
                 break;
-            }
+            default:
+                break;
         }
     }
     /**

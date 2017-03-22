@@ -14,19 +14,12 @@ import javax.swing.JToolBar;
  */
 public class ToolBar extends JToolBar{
     private JButton btnExit, btnNewFile, btnPrint, btnSelect,btnOpen, btnSave;
-    private JComboBox cmbList;   
-    private EditorModel model;
-    
-    {
-        btnExit=new JButton("Zamknij");
-        btnNewFile=new JButton("Nowy Plik");
-        btnPrint=new JButton("Drukuj");
-        btnSelect=new JButton("Wybierz");
-        btnOpen=new JButton("Otworz");
-        btnSave=new JButton("Zapisz plik");
-    }
+    private final JComboBox cmbList;   
+    private final EditorModel model;
+
     
     public ToolBar(Window window) {
+        create();
         model=new EditorModel(window);
         cmbList=new JComboBox((ComboBoxModel) model);
         add();
@@ -34,6 +27,14 @@ public class ToolBar extends JToolBar{
         addListener();
     }
 
+    private void create(){
+        btnExit=new JButton("Zamknij");
+        btnNewFile=new JButton("Nowy Plik");
+        btnPrint=new JButton("Drukuj");
+        btnSelect=new JButton("Wybierz");
+        btnOpen=new JButton("Otworz");
+        btnSave=new JButton("Zapisz plik");        
+    }
     private void add() {
         add(btnNewFile);
         add(btnExit);

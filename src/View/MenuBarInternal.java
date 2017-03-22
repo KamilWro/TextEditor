@@ -8,12 +8,13 @@ import javax.swing.*;
  */
 public class MenuBarInternal extends JMenuBar{
     private JMenu menuEdit;
-    private JEditorPane panel;
-    private Manager manager;
+    private final JEditorPane panel;
+    private final Manager manager;
     private JMenuItem mUndo, mRedo, mCopy, mCut, mPaste;
-    private ActionMap map;
+    private final ActionMap map;
 
-    {          
+    
+    private void create(){          
         menuEdit = new JMenu("Edycja");
         mUndo = new JMenuItem("Cofnij");
         mRedo = new JMenuItem("Przywroc");
@@ -24,6 +25,7 @@ public class MenuBarInternal extends JMenuBar{
     
     
     public MenuBarInternal(JEditorPane panel) {
+        create();
         manager=new Manager(panel);
         map=panel.getActionMap();
         this.panel=panel;

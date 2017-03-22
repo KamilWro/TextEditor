@@ -22,46 +22,36 @@ public class MenuBarListener implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         String source=event.getActionCommand();
         switch(source){
-            case "Koniec":{
+            case "Koniec":
                 window.close();
                 break;
-            }
-            case "OApk":{
+            case "OApk":
                 String s="Wielodokumentowy edytor tekstowy.";
                 JOptionPane.showMessageDialog(null, s, "O Aplikacji", JOptionPane.INFORMATION_MESSAGE);
-                break;
-            }                                    
-            case "OAut":{
+                break;                                 
+            case "OAut":
                 JOptionPane.showMessageDialog(null, "Autor:                 Kamil Breczko\nWersja:              1.0+\nData wydania:  09 12 2016", "O Aplikacji", JOptionPane.INFORMATION_MESSAGE);
+                break;                 
+            case "Domyslny":
+                set(UIManager.getCrossPlatformLookAndFeelClassName());
                 break;
-            }                    
-            case "Domyslny":{
-                try {
-                    UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-                    SwingUtilities.updateComponentTreeUI(window);
-                }catch(Exception e) {
-                    JOptionPane.showMessageDialog(window, "Wystapil blad przy zmianie stylu", "Blad", JOptionPane.ERROR_MESSAGE);
-                }
+            case "Nimbus":
+                set("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
                 break;
-            }
-            case "Nimbus":{
-                try {
-                    UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-                    SwingUtilities.updateComponentTreeUI(window);
-                }catch(Exception e) {
-                    JOptionPane.showMessageDialog(window, "Wystapil blad przy zmianie stylu", "Blad", JOptionPane.ERROR_MESSAGE);
-                }
+            case "Motif":
+
                 break;
-            }
-            case "Motif":{
-                try {
-                    UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
-                    SwingUtilities.updateComponentTreeUI(window);
-                }catch(Exception e) {
-                    JOptionPane.showMessageDialog(window, "Wystapil blad przy zmianie stylu", "Blad", JOptionPane.ERROR_MESSAGE);
-                }
+            default:
                 break;
-            } 
         }
+    }
+    
+    private void set(String name){
+        try {
+            UIManager.setLookAndFeel(name);
+            SwingUtilities.updateComponentTreeUI(window);
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(window, "Wystapil blad przy zmianie stylu", "Blad", JOptionPane.ERROR_MESSAGE);
+        } 
     }
 }

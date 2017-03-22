@@ -10,16 +10,12 @@ public class Window extends JFrame {
     private MenuBar menu;
     private ToolBar tool;
     public JDesktopPane desktop;
-
-
-    {
-        desktop=new JDesktopPane();
-        menu=new MenuBar(this);
-        tool=new ToolBar(this); 
-    }
     
     public Window() {
         super("Edytor Tekstowy");
+        desktop=new JDesktopPane();
+        menu=new MenuBar(this);
+        tool=new ToolBar(this); 
         add();
         settings();  
         

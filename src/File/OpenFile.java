@@ -18,8 +18,7 @@ public class OpenFile{
         fc=new JFileChooser();
         if(fc.showOpenDialog(null)==JFileChooser.APPROVE_OPTION){
             file=fc.getSelectedFile();
-            try{
-                Scanner sc=new Scanner(file);
+            try(Scanner sc=new Scanner(file)){
                 while(sc.hasNext())
                     text=text+sc.nextLine()+"\n";
                 

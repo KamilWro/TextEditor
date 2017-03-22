@@ -16,7 +16,7 @@ public class DocumentInternal extends JInternalFrame{
     private MenuBarInternal menu;
     private String name;
           
-    {
+    private void create(){
         editorPanel=new JEditorPane();
         innerPanel= new JScrollPane();
         menu=new MenuBarInternal(editorPanel);
@@ -24,6 +24,7 @@ public class DocumentInternal extends JInternalFrame{
     }
     
     public DocumentInternal(ArrayList <DocumentInternal> documents){
+        create();
         name = (String) JOptionPane.showInputDialog(null, "Wpisz nazwe pliku:", "Nazwa pliku",JOptionPane.WARNING_MESSAGE);
         check(documents);
         add();
@@ -40,11 +41,11 @@ public class DocumentInternal extends JInternalFrame{
      * @param names 
      */
     private void check(ArrayList <DocumentInternal> names){
-        if (name==null || name.equals(""))  throw new IllegalArgumentException("Brak nazwy pliku"); 
+        if (name==null || name.equals(""))  
+             throw new IllegalArgumentException("Brak nazwy pliku"); 
         for(int i=0;i< names.size();i++){
-            if(name.equals(names.get(i).getName())){
+            if(name.equals(names.get(i).getName()))
                 throw new IllegalArgumentException("Nazwa pliku już istnieje");
-            }
         }
         
     }

@@ -19,10 +19,8 @@ public class EditorModel  extends AbstractListModel implements ComboBoxModel{
     private ArrayList<DocumentInternal> documents;
     private Window window;
 
-    {
-        documents=new ArrayList<DocumentInternal>();
-    }
     public EditorModel(Window window){
+        documents=new ArrayList<DocumentInternal>();
         this.window=window;
     }
     

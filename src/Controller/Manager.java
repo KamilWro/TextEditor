@@ -18,13 +18,10 @@ public class Manager {
     private UndoManager uman;
     private Action undo, redo;
     private JEditorPane panel;
-    
-    {
-        uman = new UndoManager();
-    }
         
     public Manager(JEditorPane panel){
         this.panel=panel;
+        uman = new UndoManager();
         createUndoRedo();
     }
     

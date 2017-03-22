@@ -9,7 +9,9 @@ import javax.swing.*;
 public class MenuBar extends JMenuBar{
     private JMenu menuFile,menuSettings, menuHelp;
     private JMenuItem mEnd, mDefault, mNimbus, mIApk, mIAuthor,mMotif;
-    {
+    
+    
+    private void create(){
         menuFile = new JMenu("Program");
         mEnd = new JMenuItem("Koniec", 'K');
 
@@ -25,6 +27,7 @@ public class MenuBar extends JMenuBar{
     
     
     public MenuBar(Window window) {
+        create();
         add();
         setCommand();
         addListener(window);
